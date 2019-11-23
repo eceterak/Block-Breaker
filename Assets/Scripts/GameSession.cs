@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class GameSession : MonoBehaviour
 {
     [Range(0.25f, 2f)] [SerializeField] float gameSpeed = 1f;
     [SerializeField] int pointsPerBlockDestroyed = 24;
     [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] bool isAutoPlayEnabled;
 
     [SerializeField] int currentScore = 0;
 
@@ -35,6 +37,11 @@ public class GameSession : MonoBehaviour
     void Update()
     {
         Time.timeScale = gameSpeed;
+    }
+
+    public bool IsAutoPlayEnabled()
+    {
+        return isAutoPlayEnabled;
     }
 
     public void AddToScore()
